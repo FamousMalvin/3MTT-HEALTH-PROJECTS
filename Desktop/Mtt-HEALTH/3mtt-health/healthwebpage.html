@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../mycss/healthwebpage.css">
+</head>
+<body>
+    <div id="chat-header">
+       Quick Medical Consultation 
+    </div>
+    
+    <div id="chat-container">
+
+        <div id="chat-box"></div>
+        <!--Messages will appear here-->
+        
+        <input id="user-input" type="text" placeholder="Type in your message here....">
+        <button id="sendButton">Send</button>
+        
+    </div>
+
+</body>
+
+<script>
+
+    //const chatBox = document.getElementById("chat-box");
+    //const userInput = document.getElementById("user-input");
+    //const sendButton = document.getElementById("sendButton")
+    document.getElementById('sendButton').addEventListener('click', function() {
+    let userInput = document.getElementById('user-input').value;
+    console.log('user-input')
+    let chatBox = document.getElementById('chat-box')
+
+    let userMessage = document.createElement('div');
+    userMessage.textContent = userInput;
+    chatBox.appendChild(userMessage)
+
+    let responseMessage = document.createElement('div');
+    if (userInput.toLowercase().include('headache')) 
+    {
+    responseMessage.textContent = 'Drink enough water and take plenty of rest.';
+} else {
+    responseMessage.textContent = 'i am not sure how To help with that.';
+}
+chatBox.appendChild(responseMessage);
+})
+
+</script>
+</html>
